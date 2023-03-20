@@ -1,0 +1,36 @@
+package v2_UI;
+import java.awt.*;  
+  
+// extending Frame class to our class GUI  
+public class GUI extends Frame 
+{    
+	
+	Button my_button;
+	Label my_label;
+   // initializing using constructor  
+   GUI() 
+   {  
+	  
+      // creating a button   
+	   my_button = new Button("Log in");  
+	   my_label = new Label();
+      // setting button position on screen  
+	   my_button.setBounds(30,100,80,30);  
+  
+      // adding button into frame    
+	  add(my_label); 
+      add(my_button);  
+  
+      // frame size 300 width and 300 height    
+      setSize(300,300);  
+  
+      // setting the title of Frame  
+      setTitle("Mi6 Login");   
+          
+      // no layout manager   
+      setLayout(null);   
+  
+      // now frame will be visible, by default it is not visible    
+      setVisible(true);  
+   }    
+}    
