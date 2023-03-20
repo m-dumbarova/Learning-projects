@@ -1,0 +1,51 @@
+package v2_UI;
+import java.awt.*;  
+import java.awt.event.*; 
+  
+// class GUI  
+public class GUI 
+{    
+
+	Frame my_frame;
+	Label my_label;
+	TextField my_field;
+	Button my_button;
+	Label my_label2;
+	
+   // initializing using constructor  
+   GUI() 
+   {  
+      // creating elements 
+	   this.my_frame = new Frame();
+	   this.my_label = new Label();
+	   this.my_field = new TextField();
+	   this.my_button = new Button("Log in"); 
+	   this.my_label2 = new Label();
+	   
+	   // setting the title of Frame  
+	   this.my_frame.setTitle("Mi6 Login");
+	   
+      // setting elements position on screen  
+	   this.my_frame.setSize(300,300);   // frame size 300 width and 300 height 
+	   this.my_label.setBounds(50, 50, 150, 20);
+	   this.my_field.setBounds(50, 100, 150, 20);
+	   this.my_button.setBounds(50, 150, 150, 20);
+	   this.my_label.setBounds(50, 200, 150, 20);
+	   
+      // adding button into frame    
+	  this.my_frame.add(this.my_label); 
+	  this.my_frame.add(this.my_field);
+      this.my_frame.add(this.my_button);
+      this.my_frame.addWindowListener(new WindowAdapter(){
+    	  public void windowClosing(WindowEvent we){
+    	  System.exit(0);
+    	  }
+    	  });     
+        
+      // no layout manager   
+      this.my_frame.setLayout(null);   
+  
+      // now frame will be visible, by default it is not visible    
+      //this.my_frame.setVisible(true);  
+   }    
+}    

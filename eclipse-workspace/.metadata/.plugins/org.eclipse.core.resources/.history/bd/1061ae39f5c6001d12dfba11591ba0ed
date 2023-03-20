@@ -1,0 +1,37 @@
+import java.sql.*;
+
+class MySQLCon {
+	public static void main(String args[]) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver"); //voor Java 9 of cj weghalen
+
+			//when problem with timezone:
+			//jdbc:mysql://localhost:3306/petcatalog?serverTimezone=UTC
+			//this is a workaround, but no solution:
+			//https://stackoverflow.com/questions/26515700/mysql-jdbc-driver-5-1-33-time-zone-issue/38296891
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/petcatalogue","root","");
+	
+			Statement stmt = con.createStatement();
+
+			ResultSet rs = stmt.executeQuery("select * from pets");
+
+			while(rs.next()) {
+			    System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+			}
+
+			con.close();
+
+		} catch(Exception e) { 
+		    System.out.println(e);
+		}
+
+	}
+}
+//download
+//https://dev.mysql.com/downloads/connector/j/ 
+//kies Platform independent, zip
+
+//to run:
+//javac -cp mysql-connector.jar;. MySQLCon.java
+//java -cp mysql-connector.jar;. MySQLCon
+//if you use Windows PowerShell use a : not a ;
